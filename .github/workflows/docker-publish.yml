@@ -43,4 +43,4 @@ jobs:
           context: ./mysql
           file: ./mysql/Dockerfile
           push: true
-          tags: tgrall-bookinfo/mysql:latest
+          tags: ghcr.io/tgrall-bookinfo/mysql:latest
