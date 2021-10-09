@@ -37,10 +37,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: Build and push MySQL Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: ./mysql
           file: ./mysql/Dockerfile
           push: true
-          tags: ghcr.io/tgrall-bookinfo/mysql:latest
+          tags: ghcr.io/tgrall-bookinfo/bookinfo-mysql:latest
+          
+      - name: Build and push MongoDB Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: ./mongodb
+          file: ./mongodb/Dockerfile
+          push: true
+          tags: ghcr.io/tgrall-bookinfo/bookinfo-mongodb:latest          
